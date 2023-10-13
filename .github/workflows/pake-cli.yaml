@@ -134,7 +134,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: output-${{ inputs.platform }}.zip
-          path: node_modules/pake-cli/*.msi
+          path: node_modules/pake-cli/output/*
           retention-days: 3
 
       - name: Rust cache store
