@@ -101,6 +101,14 @@ window.addEventListener('DOMContentLoaded', _event => {
       border-bottom: none;
     }
 
+    #global > div.header-container.showSearchBoxOrHeaderFixed > header > div.right > div > div.dropdown-nav{
+      display: none;
+    }
+
+    #__next > div.AnnouncementWrapper_container__Z51yh > div > aside > div > div > menu > section:nth-child(4) > section, #__next > div.AnnouncementWrapper_container__Z51yh > div > aside > div > div > menu > section:nth-child(4){
+      display: none;
+    }
+
     #react-root [data-testid="placementTracking"] article,
     #react-root a[href*="quick_promote_web"],
     #react-root [data-testid="AppTabBar_Explore_Link"],
@@ -256,13 +264,6 @@ window.addEventListener('DOMContentLoaded', _event => {
       }
     }
 
-    @media (min-width:1024px){
-      #__next .text-base.lg\\:max-w-xl, #__next form.stretch.lg\\:max-w-2xl,
-      #__next > .w-full.h-full .lg\\:max-w-\\[38rem\\] {
-        max-width: 44rem;
-      }
-    }
-
     @media (min-width:1280px){
       #__next .text-base.xl\\:max-w-3xl, #__next form.stretch.xl\\:max-w-3xl {
         max-width: 48rem;
@@ -311,7 +312,22 @@ window.addEventListener('DOMContentLoaded', _event => {
     }
 
     #__next .overflow-hidden>.overflow-x-hidden .scrollbar-trigger > nav {
-      padding-top: 30px;
+      padding-top: 12px;
+    }
+
+    #__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div.absolute.left-0.right-0 > div > div.flex.items-center.gap-2 > button{
+      margin-left: 60px;
+      margin-right: -10px;
+    }
+
+    #__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.dark.flex-shrink-0.overflow-x-hidden.bg-black > div > div > div > div > nav > div.flex.flex-col.pt-2.empty\\:hidden.dark\\:border-white\\/20 > a,
+    #__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.group.fixed.bottom-3.right-3.z-10.hidden.gap-1.lg\\:flex > div,
+    #__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary > div > div > div > div > nav > div.flex.flex-col.pt-2.empty\\:hidden.dark\\:border-white\\/20 > a {
+      display: none;
+    }
+
+    #__next .md\\:px-\\[60px\\].text-token-text-secondary.text-xs.text-center.py-2.px-2.relative{
+      visibility:hidden;
     }
 
     #__next>div>div>.flex.h-screen.w-full.flex-col.items-center {
@@ -320,6 +336,15 @@ window.addEventListener('DOMContentLoaded', _event => {
 
     #__next .sticky.left-0.right-0.top-0.z-20.bg-black{
       padding-top: 0px;
+    }
+
+    #header-area > div > .css-gtiexd > div:nth-child(1) > div, #header-area .logoIcon .user-info{
+      padding-top: 20px;
+    }
+
+    #__next > div.AnnouncementWrapper_container__Z51yh > div > aside.SidebarLayout_sidebar__SXeDJ.SidebarLayout_left__k163a > div > div > header{
+      padding-left: 84px;
+      padding-top: 10px;
     }
 
     #page .main_header, .cb-layout-basic--navbar,
@@ -358,12 +383,12 @@ window.addEventListener('DOMContentLoaded', _event => {
       top: 28px;
     }
 
-    #pack-top-dom:active {
+    #pake-top-dom:active {
       cursor: grabbing;
       cursor: -webkit-grabbing;
     }
 
-    #pack-top-dom{
+    #pake-top-dom{
       position:fixed;
       background:transparent;
       top:0;
@@ -373,7 +398,7 @@ window.addEventListener('DOMContentLoaded', _event => {
       -webkit-app-region: drag;
       user-select: none;
       -webkit-user-select: none;
-      z-index: 90000;
+      z-index: 99999;
     }
 
     @media (max-width:767px){
@@ -387,7 +412,7 @@ window.addEventListener('DOMContentLoaded', _event => {
     }
   `;
   const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-  if(window.pakeWindowTitleTransparent && isMac){
+  if (window.pakeWindowTitleTransparent && isMac) {
     const topPaddingStyleElement = document.createElement('style');
     topPaddingStyleElement.innerHTML = topPaddingCSS;
     document.head.appendChild(topPaddingStyleElement);
