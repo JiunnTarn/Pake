@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // case: download from dataURL -> convert dataURL ->
           } else if (url.startsWith('data:')) {
             downloadFromDataUri(url, filename);
-          } else if (isDownloadLink(url) || anchorEle.hostname !== window.location.host) {
+          } else if (isDownloadLink(url) || anchorEle.host !== window.location.host) {
             handleExternalLink(e, url);
           }
         },
@@ -206,13 +206,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const detectAnchorElementClick = e => {
     const anchorElement = e.target.closest('a');
     if (anchorElement && anchorElement.href) {
-      anchorElement.target = '_self';
+      if (!anchorElement.target) {
+        anchorElement.target = '_self';
+      }
+
       const hrefUrl = new URL(anchorElement.href);
       const absoluteUrl = hrefUrl.href;
       let filename = anchorElement.download || getFilenameFromUrl(absoluteUrl);
 
       // Handling external link redirection.
-      if (isExternalLink(absoluteUrl) && (['_blank', '_new'].includes(anchorElement.target) || externalTargetLink())) {
+      if ((isExternalLink(absoluteUrl) && ['_blank', '_new'].includes(anchorElement.target)) || externalTargetLink()) {
         handleExternalLink(e, absoluteUrl);
         return;
       }
@@ -236,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apple login and google login
     if (name === 'AppleAuthentication') {
       //do nothing
-    } else if (specs.includes('height=') || specs.includes('width=')) {
+    } else if (specs && (specs.includes('height=') || specs.includes('width='))) {
       location.href = url;
     } else {
       const baseUrl = window.location.origin + window.location.pathname;
